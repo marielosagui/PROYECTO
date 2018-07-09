@@ -39,7 +39,7 @@ public class Juego extends javax.swing.JFrame {
     static public boolean con_exitosa = false;
     Point posicionflappy;
     public String ruta = "";
-    int velocidad = 3;
+    int velocidad = 4;
 
     public Juego() {
         jLabel2 = new javax.swing.JLabel();
@@ -63,7 +63,7 @@ public class Juego extends javax.swing.JFrame {
         this.setTitle("FLAPPY BIRD");
         puntaje = new Puntaje(this);
         posicionflappy = jFlappy.getLocation();
-        this.jPanel1.setSize(800, 9000);
+        this.jPanel1.setSize(800, 900);
     }
 
     @SuppressWarnings("unchecked")
@@ -73,7 +73,7 @@ public class Juego extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        panelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MAPA.jpg"))); 
+        panelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MAPA3.jpg"))); 
         panelImage1.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -88,15 +88,15 @@ public class Juego extends javax.swing.JFrame {
         jSuelo.setLayout(jSueloLayout);
         jSueloLayout.setHorizontalGroup(
                 jSueloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGap(0, 580, Short.MAX_VALUE)
+                .addGap(0, 850, Short.MAX_VALUE) // MOD TAMAÑO
         );
         jSueloLayout.setVerticalGroup(
                 jSueloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGap(0, 180, Short.MAX_VALUE)
+                .addGap(0, 200, Short.MAX_VALUE) // MOD TAMAÑO 
         );
 
         panelImage1.add(jSuelo);
-        jSuelo.setBounds(-130, 470, 580, 180);
+        jSuelo.setBounds(-130, 500, 850, 200); // MODIFICACION TAM SUELO
 
         jPuntaje.setFont(new java.awt.Font("Tahoma", 1, 40));
         jPuntaje.setForeground(new java.awt.Color(255, 255, 255));
@@ -134,24 +134,24 @@ public class Juego extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                 .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(panelImage1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                        .addComponent(panelImage1, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
                         .addGap(0, 0, 0))
         );
         jPanel1Layout.setVerticalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(panelImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                .addComponent(panelImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         pack();
@@ -256,7 +256,7 @@ public class Juego extends javax.swing.JFrame {
 
     public synchronized void ValidarChoque() {
         int y = jFlappy.getLocation().y;
-        if (y == 448) {
+        if (y == 480) { //  PUNTO SUELO DONDE EL PAJARO CAE
             if (Sonido.terminochoque) {
                 Sonido.choque();
             }
@@ -286,7 +286,7 @@ public class Juego extends javax.swing.JFrame {
         panel2.add(puntaje);
         puntaje.setBounds(0, 0, panel2.getWidth(), panel2.getHeight());
         panelImage1.add(panel2);
-        panel2.setBackground(new Color(255, 255, 153));
+        panel2.setBackground(new Color(255, 175, 175));
         puntaje.setVisible(true);
         puntaje.mostrar();
         panel2.setVisible(true);
